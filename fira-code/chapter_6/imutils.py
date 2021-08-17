@@ -32,6 +32,11 @@ def resize(image, width=None, height=None, inter=cv2.INTER_AREA):
     resized = cv2.resize(image, dim, interpolation=inter)
     return resized
 
-
+def crop(image, start=[0, 0], end=None):
+    if not end:
+        end = [image.shape[1], image.shape[0]]
+    cropped = image[start[0]:end[0], start[1]:end[1]]
+    
+    return cropped
 
 
