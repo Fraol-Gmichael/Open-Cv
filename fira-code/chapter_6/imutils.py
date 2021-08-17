@@ -39,4 +39,19 @@ def crop(image, start=[0, 0], end=None):
     
     return cropped
 
+def arithmetic(image, number, add=False, subtract=False):
+    
+    number = np.ones(image.shape, dtype="uint8") * number
+    
+    if add and subtract:
+        return image
+    elif add:
+        return cv2.add(image, number)
+    elif subtract:
+        return cv2.subtract(image, number)
+    else:
+        return image
+
+
+
 
