@@ -76,5 +76,24 @@ def mask(image, center=None, width=50, rectangle=True):
 
     masked = cv2.bitwise_and(masked, image)
 
+    return masked
+
+    #------------OR-----------#
+    mask = np.zeros(image.shape[:2], dtype="uint8")
+
+    if not center:
+        center = [image.shape[1]//2, image.shape[0]//2]
+    
+    center = np.array(center)
+
+    start = center - width
+    end = center + width
+
+    if rectangle:
+        masked = cv2.rectangle(mask, start, end, 255, -1)
+    else:
+        masked = cv2.circle(mask, center, width, 255, -1)
+
+    masked = cv2.bitwise_and(image, image, mask=masked)
 
     return masked
