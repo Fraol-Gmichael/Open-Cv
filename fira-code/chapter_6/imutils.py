@@ -101,3 +101,18 @@ def mask2(image, center=None, width=50, rectangle=True):
     masked = cv2.bitwise_and(image, image, mask=masked)
 
     return masked
+
+def hueMaker(image, rgb, hueto='r'):
+    (r, g, b) = rgb
+    B, G, R = cv2.split(image)
+    zeros = np.zeros(image.shape[:2], dtype="uint8")
+    hue = 0
+    if hueto == 'r':
+        hue = cv2.merge([zeros+b, zeros+g, R])
+    elif hueto == 'g':
+        hue = cv2.merge([zeros+b, G, zeros+r])
+    elif hueto == 'b':
+        hue = cv2.merge([B, zeros+g, zeros+r])
+    
+    return hue
+
