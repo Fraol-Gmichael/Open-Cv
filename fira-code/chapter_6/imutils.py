@@ -63,7 +63,7 @@ def mask(image, center=None, width=50, rectangle=True):
 
     if not center:
         center = [image.shape[1]//2, image.shape[0]//2]
-    
+
     center = np.array(center)
 
     start = center - width
@@ -79,11 +79,15 @@ def mask(image, center=None, width=50, rectangle=True):
     return masked
 
     #------------OR-----------#
+
+
+def mask2(image, center=None, width=50, rectangle=True):
+
     mask = np.zeros(image.shape[:2], dtype="uint8")
 
     if not center:
         center = [image.shape[1]//2, image.shape[0]//2]
-    
+
     center = np.array(center)
 
     start = center - width
