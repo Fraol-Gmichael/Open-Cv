@@ -4,6 +4,7 @@ import argparse
 import cv2 
 from matplotlib import pyplot as plt
 
+
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True, help="Path to image file")
 
