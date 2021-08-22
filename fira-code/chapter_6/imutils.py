@@ -78,8 +78,6 @@ def mask(image, center=None, width=50, rectangle=True):
 
     return masked
 
-    #------------OR-----------#
-
 
 def mask2(image, center=None, width=50, rectangle=True):
 
@@ -102,7 +100,9 @@ def mask2(image, center=None, width=50, rectangle=True):
 
     return masked
 
+
 def hueMaker(image, rgb, hueto='r'):
+
     (r, g, b) = rgb
     B, G, R = cv2.split(image)
     zeros = np.zeros(image.shape[:2], dtype="uint8")
@@ -113,6 +113,5 @@ def hueMaker(image, rgb, hueto='r'):
         hue = cv2.merge([zeros+b, G, zeros+r])
     elif hueto == 'b':
         hue = cv2.merge([B, zeros+g, zeros+r])
-    
-    return hue
 
+    return hue
