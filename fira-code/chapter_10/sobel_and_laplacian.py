@@ -30,9 +30,12 @@ sobelX = np.uint8(np.absolute(sobelX))
 sobelY = np.uint8(np.absolute(sobelY))
 
 sobelCombined = cv2.bitwise_or(sobelX, sobelY)
+print(np.max(sobelCombined))
 
 cv2.imshow("Sobel X", sobelX)
+print(np.max(sobelX))
 cv2.imshow("Sobel Y", sobelY)
+print(np.max(sobelY))
 cv2.imshow("Sobel Combined", sobelCombined)
 
 cv2.waitKey(0)
